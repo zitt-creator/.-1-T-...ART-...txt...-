@@ -5,8 +5,14 @@ artletters^¢
 #
 ;;;;;
 #
+idiottest{PC brick}{y o u r wrong software will brick it, that y o u installed on y o u r PC}
+code
+.DEBBDEBB{Enter}
 #
-visit "the lord" in wow from w o z himself at the beginning of wood. .
+##
+##
+#
+end at "the lord" in wow from w o z himself at the beginning of wood. .
 #
 #
 #

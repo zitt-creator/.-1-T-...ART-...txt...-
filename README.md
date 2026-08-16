@@ -5,7 +5,7 @@ artletters^¢
 #
 ;;;;;
 #
-idiottest{PC brick}{y o u r wrong software will brick it, that y o u installed on y o u r PC}
+{ipu}test{PC brick}{y o u r wrong software will brick it, that y o u installed on y o u r PC}
 code
 .DEBBDEBB{Enter}
 #

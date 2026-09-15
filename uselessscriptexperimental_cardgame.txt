@@ -1,0 +1,152 @@
+print
+::
+# Z.ITT  rules
+import random
+
+# Define UNO card attributes
+COLORS = ['Red', 'Blue', 'Green', 'Yellow']
+VALUES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+class Card:
+    def __init__(self, color, value):
+        self.color = color
+        self.value = value
+
+    def __str__(self):
+        return f"[{self.color[0]}-{self.value}]"  # e.g., [R-5], [B-2]
+
+    def matches(self, other):
+        """Check if this card can be played on top of another card (UNO rules)."""
+        return self.color == other.color or self.value == other.value
+
+
+class UnoSolitaireGame:
+    def __init__(self, num_columns=4, cards_per_col=3):
+        self.columns = []
+        self.discard_pile = []
+        self.deck = []
+        self._initialize_deck()
+        self._setup_tableau(num_columns, cards_per_col)
+
+    def _initialize_deck(self):
+        """Create a standard mini-UNO deck and shuffle it."""
+        for color in COLORS:
+            for value in VALUES:
+                self.deck.append(Card(color, value))
+        random.shuffle(self.deck)
+
+    def _setup_tableau(self, num_columns, cards_per_col):
+        """Deal cards into Solitaire-style columns."""
+        for _ in range(num_columns):
+            col = []
+            for _ in range(cards_per_col):
+                if self.deck:
+                    col.append(self.deck.pop())
+            self.columns.append(col)
+        
+        # Start the discard pile with a card from the deck
+        self.discard_pile.append(self.deck.pop())
+
+    def display_state(self):
+        """Render the current game board."""
+        print("\n" + "="*40)
+        print(f"DISCARD PILE TOP: {self.discard_pile[-1]}")
+        print(f"Cards remaining in deck: {len(self.deck)}")
+        print("-" * 40)
+        print("TABLEAU COLUMNS:")
+        for idx, col in enumerate(self.columns):
+            if col:
+                # Show top card of each column
+                visible_cards = " ".join(str(c) for c in col)
+                print(f"Column {idx + 1}: {visible_cards} (Top: {col[-1]})")
+            else:
+                print(f"Column {idx + 1}: [ EMPTY ]")
+        print("="*40)
+
+    def play_card(self, col_index):
+        """Attempt to play the top card of the chosen column."""
+        if col_index < 0 or col_index >= len(self.columns):
+            print("Invalid column choice!")
+            return False
+
+        col = self.columns[col_index]
+        if not col:
+            print("Selected column is empty!")
+            return False
+
+        candidate_card = col[-1]
+        current_top = self.discard_pile[-1]
+
+        if candidate_card.matches(current_top):
+            # Valid move: remove from column and add to discard pile
+            col.pop()
+            self.discard_pile.append(candidate_card)
+            print(f"Successfully played {candidate_card}!")
+            return True
+        else:
+            print(f"Cannot play {candidate_card}. Must match color ({current_top.color}) or value ({current_top.value}).")
+            return False
+
+    def draw_from_deck(self):
+        """Draw a card from the deck to act as the new discard pile top (if deck is available)."""
+        if self.deck:
+            new_card = self.deck.pop()
+            self.discard_pile.append(new_card)
+            print(f"AI Neural Dealer draws a card: {new_card}")
+            return True
+        else:
+            print("Deck is empty! No cards left to draw.")
+            return False
+
+    def check_win(self):
+        """Check if all columns are cleared."""
+        return all(len(col) == 0 for col in self.columns)
+
+    def check_loss(self):
+        """Simple heuristic: if deck is empty and no valid moves exist."""
+        # For simplicity in this simulation, check if any top card can match
+        if not self.deck:
+            current_top = self.discard_pile[-1]
+            for col in self.columns:
+                if col and col[-1].matches(current_top):
+                    return False
+            return True
+        return False
+#
+# --- Automated Game Simulation Loop ---
+if __name__ == "__main__":
+    print("Initializing UNO Solitär: Neural Edition...")
+    game = UnoSolitaireGame(num_columns=4, cards_per_col=3)
+    
+    turns = 0
+    max_turns = 20
+
+    while turns < max_turns:
+        game.display_state()
+
+        if game.check_win():
+            print("\n🎉 Victory! You cleared the entire Solitaire tableau!")
+            break
+
+        if game.check_loss():
+            print("\n💀 Game Over! No moves left and deck is empty.")
+            break
+
+        # Simulated AI / Player move picker: find first valid column to play
+        current_top = game.discard_pile[-1]
+        moved = False
+        
+        for i, col in enumerate(game.columns):
+            if col and col[-1].matches(current_top):
+                print(f"\n[Turn {turns + 1}] Attempting to play from Column {i + 1}...")
+                game.play_card(i)
+                moved = True
+                break
+
+        if not moved:
+            print(f"\n[Turn {turns + 1}] No valid moves available on tableau. Drawing from deck...")
+            game.draw_from_deck()
+
+        turns += 1
+.
+/.

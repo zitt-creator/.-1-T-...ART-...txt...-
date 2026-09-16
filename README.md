@@ -4,6 +4,16 @@ artletters^¢
 #
 #
 ;;;;;
+/.
+# n o t e s
+tip for gemini::
+train it for playing a game in a way that evolves through live input..  . .
+/.
+python is useful for the chat ai to create otherwise useless scripts; that can create the evolving input.
+#
+/.
+#.///.create..create.terminate..cloud.execute  enter  punkt..  . .
+/.
 #
 # intra kill {pc games}
 most of the time it is possible, especially in ego-shooters, to glitch the enemy and his cheats with an intra-kill, using the physics of the map.

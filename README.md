@@ -1,3 +1,5 @@
+updatated last::00240009026:12::00sulu..  . .
+/.
 ::
 # .-1-T-...ART-...txt...-
 artletters^¢
@@ -20,6 +22,9 @@ most of the time it is possible, especially in ego-shooters, to glitch the enemy
 the standard pistol should work best in most games. you just have to jump against the point on a wall on the map with the standard pistol and shoot at the right moment to hit your enemy.
 the enemy has to face problems like wrong mouse movement, ram glitches, cpu glitches.
 #
+update:: jump and shoot with the pistol against the next wall on the map in ego-shooters to intra-kill or even frag the enemy across the map; is possible with other totally different typed commands and things to do ingame.
+any game has things to control to frag via intra-kill..  . .
+/.
 #
 # info .debb..   {bash execute .debb}
 {ipu}test{PC brick}{y o u r wrong software will brick it, that y o u installed on y o u r PC}

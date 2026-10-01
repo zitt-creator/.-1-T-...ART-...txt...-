@@ -41,5 +41,31 @@ w
 #
 #
 ;;;;;
-...;;;;;...{likiti.}.
+#
+##
+##
+#####
+# g r o u n d i n g..  . .    /.
+/.    5..  . .    ///.
+# condensing
+#
+# ;   -----|-----
+;      ----|----
+;       ---|---
+;        --|--
+;         -|-
+/.    ..  . .    ///.
+/.
+#
+##
+##
+#####
+# idea for home; extra-grounding
+just use a cable from grounding point{can be everything, that stands on earth; for example PC-cases}, to a blumentopf"{works best with first contact in the bottom and next from the top to the bottom of the next blumentopf" condenser}..  . .
+#
+##
+##
+#####
+#
+...;;;;;...{likiti.}."
 .

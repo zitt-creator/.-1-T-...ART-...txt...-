@@ -24,6 +24,7 @@ the enemy has to face problems like wrong mouse movement, ram glitches, cpu glit
 #
 update:: jump and shoot with the pistol against the next wall on the map in ego-shooters to intra-kill or even frag the enemy across the map; is possible with other totally different typed commands and things to do ingame.
 any game has things to control to frag via intra-kill..  . .
+use the vent two times in the open source game among us to somehow glitch the code from the avatar of the chosen enemy..  . .    ///
 /.
 #
 # info .debb..   {bash execute .debb}

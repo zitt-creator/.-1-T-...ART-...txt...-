@@ -1,4 +1,4 @@
-updated last::00010010026:12::00sulu..  . .
+updated last::00080010026:12::00sulu..  . .
 /.
 ::
 # .-1-T-...ART-...txt...-
@@ -67,6 +67,15 @@ just use a cable from grounding point{can be everything, that stands on earth; f
 ##
 ##
 #####
-#
+##
+##
+# n o t e
+the ordinary alien on the other planet is your neighbour like your neighbour on earth..  . .
+surviving for peace in mind..  . .    ///.
+/.
+##
+##
+#####
+#;
 ...;;;;;...{likiti.}."
 .

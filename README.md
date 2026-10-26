@@ -18,7 +18,7 @@ python is useful for the chat ai to create otherwise useless scripts; that can c
 ##
 #####
 # n o t e
-y o u can use any image and anything else for the ground construction of your own pictures..  . .{useful for printing even in stone.}
+y o u can use any image and anything else for the ground construction of your own pictures for free..  . .{useful for printing even in stone.}
 ##
 ##
 #

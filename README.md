@@ -7,7 +7,7 @@ artletters^¢
 #
 ;;;;;
 /.
-# n o t e s
+# n o t e
 tip for gemini::
 train it for playing a game in a way that evolves through live input..  . .
 /.
@@ -22,11 +22,14 @@ y o u can use any image and anything else for the ground construction of your ow
 ##
 ##
 #
+/.
 #####
 # "
 #.///.create..create.terminate..cloud.execute  enter  punkt..  . .
 /.
-#
+##
+##
+# n o t e
 # intra kill {pc games}
 most of the time it is possible, especially in ego-shooters, to glitch the enemy and his cheats with an intra-kill, using the physics of the map.
 the standard pistol should work best in most games. you just have to jump against the point on a wall on the map with the standard pistol and shoot at the right moment to hit your enemy.
@@ -36,26 +39,32 @@ update:: jump and shoot with the pistol against the next wall on the map in ego-
 any game has things to control to frag via intra-kill..  . .
 use the vent two times in the open source game among us to somehow glitch the code from the avatar of the chosen enemy..  . .    ///
 /.
+##
+##
 #
+#####
+# n o t e
 # info .debb..   {bash execute .debb}
 {ipu}test{PC brick}{y o u r wrong software will brick it, that y o u installed on y o u r PC}
 code
 .DEBBDEBB{Enter}
+##
+##
 #
-##
-##
+#####
 #
 w
 ##
-#
-#
+##
+#####
 #
 #
 ;;;;;
-#
+##
 ##
 ##
 #####
+# n o t e
 # g r o u n d i n g..  . .    /.
 /.    5..  . .    ///.
 # condensing
@@ -67,15 +76,16 @@ w
 #### ;::     -|-
 /.    ..  . .    ///.
 /.
+##
+##
 #
-##
-##
 #####
+# n o t e
 # idea for home; extra-grounding
 just use a cable from grounding point{can be everything, that stands on earth; for example PC-cases}, to a blumentopf"{works best with first contact in the bottom and next from the top to the bottom of the next blumentopf" condenser}..  . .
+##
+##
 #
-##
-##
 #####
 ##
 ##

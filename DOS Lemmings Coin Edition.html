@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DOS Lemmings: Coin Edition (1994)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Press Start 2P', monospace;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* CRT Filter FX */
+        .crt-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .crt-overlay::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 20;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
+        .crt-overlay::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: rgba(18, 16, 16, 0.1);
+            opacity: 0;
+            z-index: 20;
+            pointer-events: none;
+            animation: flicker 0.15s infinite;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.27861; }
+            50% { opacity: 0.24487; }
+            100% { opacity: 0.286; }
+        }
+
+        /* DOS UI Palette */
+        .dos-bg-blue { background-color: #0000AA; }
+        .dos-bg-cyan { background-color: #00AAAA; }
+        .dos-text-yellow { color: #FFFF55; }
+        .dos-text-cyan { color: #55FFFF; }
+        .dos-text-green { color: #55FF55; }
+        .dos-border { border: 4px solid #000055; box-shadow: inset -2px -2px 0px #000000, inset 2px 2px 0px #55FFFF; }
+        .dos-btn {
+            background-color: #0000AA;
+            border: 3px outset #55FFFF;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: all 0.05s;
+        }
+        .dos-btn:hover { background-color: #0000D5; }
+        .dos-btn:active, .dos-btn.active {
+            border-style: inset;
+            background-color: #FFFF55;
+            color: #000000;
+        }
+
+        canvas {
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            background-color: #000000;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="game-container" class="crt-overlay flex flex-col w-full max-w-4xl bg-black rounded-lg border-4 border-gray-700 shadow-2xl p-2 my-auto">
+        
+        <!-- DOS HEADER BAR -->
+        <div class="dos-bg-blue text-white px-3 py-2 flex justify-between items-center text-xs sm:text-sm border-b-2 border-cyan-400">
+            <div class="flex items-center gap-2">
+                <span class="dos-text-yellow">MS-DOS v6.22</span>
+                <span class="hidden sm:inline dos-text-cyan">| LEMMINGS.EXE - COIN EDITION</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <div>SCORE: <span id="ui-score" class="dos-text-green">00000</span></div>
+                <div>TIME: <span id="ui-time" class="dos-text-yellow">120</span>s</div>
+            </div>
+        </div>
+
+        <!-- CANVAS GAMEPLAY WINDOW -->
+        <div class="relative w-full aspect-[4/3] bg-black flex justify-center items-center overflow-hidden border-2 border-gray-800">
+            <canvas id="gameCanvas" width="640" height="400" class="w-full h-full"></canvas>
+
+            <!-- OVERLAY SCREENS -->
+            <div id="overlay-screen" class="absolute inset-0 bg-black/85 flex flex-col items-center justify-center p-6 text-center z-30">
+                <h1 id="overlay-title" class="text-xl sm:text-3xl text-yellow-400 mb-4 tracking-wider leading-relaxed">LEMMINGS COIN DOS</h1>
+                <p id="overlay-msg" class="text-xs sm:text-base text-cyan-300 mb-6 max-w-lg leading-relaxed">
+                    Guide your lemmings safely to the exit! Use the NEW <span class="text-yellow-300">COIN TOOL</span> to attract lemmings, bribing trap hazards, or creating floating coin bridges!
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <button id="btn-start" class="dos-btn px-6 py-3 text-sm font-bold tracking-wider">START GAME</button>
+                    <button id="btn-sound-toggle" class="dos-btn px-4 py-3 text-xs">SOUND: ON</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- DOS STATUS / SKILL BAR -->
+        <div class="dos-bg-blue p-2 mt-1 flex flex-col gap-2 border-t-2 border-cyan-400">
+            
+            <!-- STATS COUNTER BAR -->
+            <div class="flex justify-between items-center text-[10px] sm:text-xs px-2 py-1 bg-black/40 rounded border border-blue-900">
+                <div>IN: <span id="ui-in" class="dos-text-cyan">0</span></div>
+                <div>OUT: <span id="ui-out" class="dos-text-yellow">0</span></div>
+                <div>SAVED: <span id="ui-saved" class="dos-text-green">0</span>/<span id="ui-target">10</span></div>
+                <div>LEVEL: <span id="ui-level" class="text-white">1</span></div>
+            </div>
+
+            <!-- ACTION BAR / TOOLS BAR -->
+            <div class="flex flex-wrap items-center justify-between gap-1">
+                
+                <!-- TOOLS BAR -->
+                <div class="flex gap-1 flex-grow justify-start overflow-x-auto py-1">
+                    <button data-tool="coin" class="tool-btn dos-btn active flex flex-col items-center p-1 sm:p-2 min-w-[55px] text-[9px] sm:text-[10px]">
+                        <span class="text-yellow-300 font-bold">🪙 COIN</span>
+                        <span class="tool-qty text-gray-300">∞</span>
+                    </button>
+                    <button data-tool="digger" class="tool-btn dos-btn flex flex-col items-center p-1 sm:p-2 min-w-[55px] text-[9px] sm:text-[10px]">
+                        <span>⛏️ DIG</span>
+                        <span class="tool-qty text-gray-300" id="qty-digger">10</span>
+                    </button>
+                    <button data-tool="blocker" class="tool-btn dos-btn flex flex-col items-center p-1 sm:p-2 min-w-[55px] text-[9px] sm:text-[10px]">
+                        <span>🛑 BLOCK</span>
+                        <span class="tool-qty text-gray-300" id="qty-blocker">5</span>
+                    </button>
+                    <button data-tool="builder" class="tool-btn dos-btn flex flex-col items-center p-1 sm:p-2 min-w-[55px] text-[9px] sm:text-[10px]">
+                        <span>🪜 BUILD</span>
+                        <span class="tool-qty text-gray-300" id="qty-builder">8</span>
+                    </button>
+                </div>
+
+                <!-- CONTROLS BAR -->
+                <div class="flex gap-1">
+                    <button id="btn-speed" class="dos-btn px-2 py-2 text-[10px] sm:text-xs">⚡ 1x</button>
+                    <button id="btn-pause" class="dos-btn px-2 py-2 text-[10px] sm:text-xs">⏸️</button>
+                    <button id="btn-restart" class="dos-btn px-2 py-2 text-[10px] sm:text-xs bg-red-900">🔄</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SOUND & ENGINE LOGIC -->
+    <script>
+        /**
+         * AUDIO SYNTHESIZER (Web Audio API Retro Sounds)
+         */
+        class SoundFX {
+            constructor() {
+                this.ctx = null;
+                this.enabled = true;
+            }
+
+            init() {
+                if (!this.ctx) {
+                    this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+            }
+
+            play(type) {
+                if (!this.enabled || !this.ctx) return;
+                try {
+                    const t = this.ctx.currentTime;
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    osc.connect(gain);
+                    gain.connect(this.ctx.destination);
+
+                    if (type === 'coin') {
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(987.77, t); // B5
+                        osc.frequency.setValueAtTime(1318.51, t + 0.08); // E6
+                        gain.gain.setValueAtTime(0.3, t);
+                        gain.gain.exponentialRampToValueAtTime(0.01, t + 0.3);
+                        osc.start(t);
+                        osc.stop(t + 0.3);
+                    } else if (type === 'dig') {
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(150, t);
+                        osc.frequency.linearRampToValueAtTime(40, t + 0.1);
+                        gain.gain.setValueAtTime(0.2, t);
+                        gain.gain.linearRampToValueAtTime(0.01, t + 0.1);
+                        osc.start(t);
+                        osc.stop(t + 0.1);
+                    } else if (type === 'build') {
+                        osc.type = 'square';
+                        osc.frequency.setValueAtTime(300, t);
+                        osc.frequency.setValueAtTime(450, t + 0.05);
+                        gain.gain.setValueAtTime(0.15, t);
+                        gain.gain.linearRampToValueAtTime(0.01, t + 0.1);
+                        osc.start(t);
+                        osc.stop(t + 0.1);
+                    } else if (type === 'splat') {
+                        osc.type = 'sawtooth';
+                        osc.frequency.setValueAtTime(120, t);
+                        osc.frequency.exponentialRampToValueAtTime(20, t + 0.2);
+                        gain.gain.setValueAtTime(0.4, t);
+                        gain.gain.linearRampToValueAtTime(0.01, t + 0.2);
+                        osc.start(t);
+                        osc.stop(t + 0.2);
+                    } else if (type === 'exit') {
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(523.25, t); // C5
+                        osc.frequency.setValueAtTime(659.25, t + 0.06); // E5
+                        osc.frequency.setValueAtTime(783.99, t + 0.12); // G5
+                        osc.frequency.setValueAtTime(1046.50, t + 0.18); // C6
+                        gain.gain.setValueAtTime(0.25, t);
+                        gain.gain.exponentialRampToValueAtTime(0.01, t + 0.35);
+                        osc.start(t);
+                        osc.stop(t + 0.35);
+                    } else if (type === 'click') {
+                        osc.type = 'square';
+                        osc.frequency.setValueAtTime(800, t);
+                        gain.gain.setValueAtTime(0.1, t);
+                        gain.gain.linearRampToValueAtTime(0.01, t + 0.03);
+                        osc.start(t);
+                        osc.stop(t + 0.03);
+                    }
+                } catch(e) {}
+            }
+        }
+
+        const audio = new SoundFX();
+
+        /**
+         * GAME ENGINE & CONFIG
+         */
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        ctx.imageSmoothingEnabled = false;
+
+        const W = 640;
+        const H = 400;
+
+        // Level Definitions
+        const LEVELS = [
+            {
+                name: "Level 1: Coin Attraction",
+                totalLemmings: 15,
+                targetSaved: 10,
+                timeLimit: 120,
+                spawnRate: 80,
+                tools: { digger: 5, blocker: 3, builder: 5 },
+                trapdoor: { x: 80, y: 60 },
+                exit: { x: 540, y: 280 },
+                platforms: [
+                    { x: 40, y: 120, w: 200, h: 20 },
+                    { x: 300, y: 180, w: 180, h: 20 },
+                    { x: 480, y: 320, w: 120, h: 20 }
+                ],
+                hazards: [
+                    { x: 260, y: 360, w: 200, h: 40, type: 'water' },
+                    { x: 240, y: 120, w: 60, h: 80, type: 'laser', active: true }
+                ],
+                switches: [
+                    { x: 380, y: 170, w: 20, h: 10, triggered: false, targetHazard: 1 }
+                ]
+            },
+            {
+                name: "Level 2: The Golden Bridge",
+                totalLemmings: 20,
+                targetSaved: 15,
+                timeLimit: 100,
+                spawnRate: 60,
+                tools: { digger: 8, blocker: 5, builder: 10 },
+                trapdoor: { x: 60, y: 50 },
+                exit: { x: 550, y: 100 },
+                platforms: [
+                    { x: 30, y: 100, w: 150, h: 20 },
+                    { x: 200, y: 220, w: 250, h: 20 },
+                    { x: 500, y: 140, w: 110, h: 20 }
+                ],
+                hazards: [
+                    { x: 0, y: 380, w: 640, h: 20, type: 'acid' },
+                    { x: 200, y: 60, w: 40, h: 160, type: 'flame', active: true }
+                ],
+                switches: []
+            }
+        ];
+
+        let currentLevelIdx = 0;
+        let gameState = 'START'; // START, PLAYING, PAUSED, WIN, LOSE
+        let activeTool = 'coin';
+        let speedMultiplier = 1;
+
+        let score = 0;
+        let timeRemaining = 120;
+        let levelTimer = null;
+        let spawnCounter = 0;
+
+        let lemmings = [];
+        let terrainBitmap = null; // Pixel mask for diggable terrain
+        let totalSpawned = 0;
+        let savedCount = 0;
+        let deadCount = 0;
+        let coinPlatforms = []; // Floating platforms created by coin toss
+
+        /**
+         * LEMMING CLASS
+         */
+        class Lemming {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.vx = 1.2;
+                this.vy = 0;
+                this.state = 'falling'; // walking, falling, digging, building, blocking, dead, exited
+                this.hasCoin = false;
+                this.coinAnim = 0;
+                this.fallDistance = 0;
+                this.buildSteps = 0;
+                this.digCount = 0;
+                this.animFrame = 0;
+                this.animTimer = 0;
+            }
+
+            update(level) {
+                if (this.state === 'dead' || this.state === 'exited') return;
+
+                this.animTimer++;
+                if (this.animTimer % 6 === 0) {
+                    this.animFrame = (this.animFrame + 1) % 4;
+                    this.coinAnim = (this.coinAnim + 1) % 8;
+                }
+
+                // Magnet Attraction Logic: Non-coin lemmings get pulled toward nearby coin lemmings
+                if (!this.hasCoin && this.state === 'walking') {
+                    const coinLemming = lemmings.find(l => l.hasCoin && l.state !== 'dead' && l.state !== 'exited' && Math.abs(l.x - this.x) < 140 && Math.abs(l.y - this.y) < 30);
+                    if (coinLemming) {
+                        this.vx = coinLemming.x > this.x ? 1.5 : -1.5;
+                    }
+                }
+
+                // Check switch triggers (weight of coin lemming)
+                if (this.hasCoin) {
+                    level.switches.forEach(sw => {
+                        if (Math.abs(this.x - (sw.x + sw.w/2)) < sw.w && Math.abs(this.y - sw.y) < 8) {
+                            sw.triggered = true;
+                            if (level.hazards[sw.targetHazard]) {
+                                level.hazards[sw.targetHazard].active = false;
+                            }
+                        }
+                    });
+                }
+
+                // State handling
+                switch (this.state) {
+                    case 'falling':
+                        this.vy += 0.25;
+                        this.y += this.vy;
+                        this.fallDistance += this.vy;
+
+                        // Check platform landing
+                        if (this.checkCollisionGround(level)) {
+                            if (this.fallDistance > 130) {
+                                this.state = 'dead';
+                                deadCount++;
+                                audio.play('splat');
+                            } else {
+                                this.state = 'walking';
+                                this.vy = 0;
+                                this.fallDistance = 0;
+                            }
+                        }
+                        break;
+
+                    case 'walking':
+                        // Check ground beneath
+                        if (!this.checkCollisionGround(level)) {
+                            this.state = 'falling';
+                            this.vy = 0;
+                            break;
+                        }
+
+                        // Move horizontally
+                        let nextX = this.x + this.vx;
+                        if (this.checkCollisionWall(nextX, this.y, level)) {
+                            this.vx = -this.vx; // Turn around
+                        } else {
+                            this.x = nextX;
+                        }
+
+                        // Check Exit Door
+                        if (Math.abs(this.x - level.exit.x) < 15 && Math.abs(this.y - level.exit.y) < 15) {
+                            this.state = 'exited';
+                            savedCount++;
+                            score += 100 + (this.hasCoin ? 50 : 0);
+                            audio.play('exit');
+                        }
+                        break;
+
+                    case 'digging':
+                        this.digCount++;
+                        if (this.digCount % 12 === 0) {
+                            digTerrain(Math.floor(this.x), Math.floor(this.y + 2), 12);
+                            audio.play('dig');
+                            this.y += 2;
+                        }
+                        if (!this.checkCollisionGround(level)) {
+                            this.state = 'falling';
+                        }
+                        break;
+
+                    case 'building':
+                        if (this.animTimer % 20 === 0) {
+                            if (this.buildSteps < 12) {
+                                const stepX = this.x + (this.vx > 0 ? 6 : -10);
+                                const stepY = this.y;
+                                addCoinPlatform(stepX, stepY, 12, 4);
+                                this.x += (this.vx > 0 ? 6 : -6);
+                                this.y -= 3;
+                                this.buildSteps++;
+                                audio.play('build');
+                            } else {
+                                this.state = 'walking';
+                            }
+                        }
+                        break;
+
+                    case 'blocking':
+                        // Act as obstacle for other lemmings
+                        lemmings.forEach(other => {
+                            if (other !== this && other.state === 'walking') {
+                                if (Math.abs(other.x - this.x) < 8 && Math.abs(other.y - this.y) < 8) {
+                                    other.vx = -other.vx;
+                                    other.x += other.vx * 2;
+                                }
+                            }
+                        });
+                        break;
+                }
+
+                // Hazard Collisions
+                level.hazards.forEach(h => {
+                    if (h.active !== false && this.x >= h.x && this.x <= h.x + h.w && this.y >= h.y && this.y <= h.y + h.h) {
+                        // Bribe feature: Coin Lemmings pass safely & deactivate hazard temporarily
+                        if (this.hasCoin) {
+                            h.active = false;
+                            audio.play('coin');
+                        } else {
+                            this.state = 'dead';
+                            deadCount++;
+                            audio.play('splat');
+                        }
+                    }
+                });
+
+                // Fall off screen bottom
+                if (this.y > H + 20) {
+                    this.state = 'dead';
+                    deadCount++;
+                }
+            }
+
+            checkCollisionGround(level) {
+                // Check bitmap terrain
+                const px = Math.floor(this.x);
+                const py = Math.floor(this.y + 1);
+                if (getTerrainPixel(px, py)) return true;
+
+                // Check static level platforms
+                for (let p of level.platforms) {
+                    if (this.x >= p.x && this.x <= p.x + p.w && this.y + 1 >= p.y && this.y <= p.y + p.h) {
+                        return true;
+                    }
+                }
+
+                // Check dynamic coin platforms
+                for (let cp of coinPlatforms) {
+                    if (this.x >= cp.x && this.x <= cp.x + cp.w && this.y + 1 >= cp.y && this.y <= cp.y + cp.h) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            checkCollisionWall(x, y, level) {
+                const px = Math.floor(x + (this.vx > 0 ? 4 : -4));
+                const py = Math.floor(y - 4);
+
+                if (getTerrainPixel(px, py)) return true;
+
+                for (let p of level.platforms) {
+                    if (px >= p.x && px <= p.x + p.w && py >= p.y && py <= p.y + p.h) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            draw() {
+                if (this.state === 'dead' || this.state === 'exited') return;
+
+                ctx.save();
+                ctx.translate(Math.floor(this.x), Math.floor(this.y));
+
+                // Lemming Body (DOS Green / Blue Outfit)
+                ctx.fillStyle = '#00AA00'; // Green hair
+                ctx.fillRect(-3, -12, 6, 3);
+
+                ctx.fillStyle = '#55FFFF'; // Cyan skin
+                ctx.fillRect(-2, -9, 4, 3);
+
+                ctx.fillStyle = '#0000AA'; // Blue body
+                ctx.fillRect(-3, -6, 6, 6);
+
+                // Direction Indicator
+                ctx.fillStyle = '#FFFFFF';
+                if (this.vx > 0) ctx.fillRect(1, -8, 2, 2);
+                else ctx.fillRect(-3, -8, 2, 2);
+
+                // Coin Feature Visual (Spinning Golden Coin overlay)
+                if (this.hasCoin) {
+                    const coinWidths = [6, 4, 2, 4];
+                    const w = coinWidths[this.coinAnim % 4];
+                    ctx.fillStyle = '#FFFF55';
+                    ctx.fillRect(-Math.floor(w/2), -18, w, 6);
+                    ctx.fillStyle = '#FFAA00';
+                    ctx.fillRect(-Math.floor(w/2) + 1, -17, Math.max(1, w - 2), 4);
+                }
+
+                // Blocker visual shield
+                if (this.state === 'blocking') {
+                    ctx.strokeStyle = '#FF5555';
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(-6, -12, 12, 12);
+                }
+
+                ctx.restore();
+            }
+        }
+
+        /**
+         * BITMAP TERRAIN SYSTEM (Destructible Terrain)
+         */
+        function initTerrain() {
+            terrainBitmap = ctx.createImageData(W, H);
+            // Empty terrain initially
+        }
+
+        function digTerrain(cx, cy, radius) {
+            const lvl = LEVELS[currentLevelIdx];
+            lvl.platforms.forEach(p => {
+                if (cx >= p.x && cx <= p.x + p.w && cy >= p.y && cy <= p.y + p.h) {
+                    // Carve simple hole in platform by adjusting platform geometry or masking
+                    p.w = Math.max(0, p.w - radius);
+                }
+            });
+        }
+
+        function getTerrainPixel(x, y) {
+            if (x < 0 || x >= W || y < 0 || y >= H) return false;
+            return false; // Handled dynamically via platforms/coinPlatforms
+        }
+
+        function addCoinPlatform(x, y, w, h) {
+            coinPlatforms.push({ x, y, w, h });
+        }
+
+        /**
+         * MAIN LOOP & RENDER
+         */
+        function gameLoop() {
+            if (gameState === 'PLAYING') {
+                for (let speed = 0; speed < speedMultiplier; speed++) {
+                    updateLogic();
+                }
+            }
+            render();
+            requestAnimationFrame(gameLoop);
+        }
+
+        function updateLogic() {
+            const level = LEVELS[currentLevelIdx];
+
+            // Spawn Lemmings
+            spawnCounter++;
+            if (spawnCounter >= level.spawnRate && totalSpawned < level.totalLemmings) {
+                lemmings.push(new Lemming(level.trapdoor.x, level.trapdoor.y));
+                totalSpawned++;
+                spawnCounter = 0;
+            }
+
+            // Update Lemmings
+            lemmings.forEach(l => l.update(level));
+
+            // Check Win/Lose Conditions
+            const inGameCount = lemmings.filter(l => l.state !== 'dead' && l.state !== 'exited').length;
+            
+            if (savedCount >= level.targetSaved) {
+                triggerWin();
+            } else if (totalSpawned >= level.totalLemmings && inGameCount === 0) {
+                triggerGameOver("NOT ENOUGH LEMMINGS SAVED!");
+            }
+
+            updateUI();
+        }
+
+        function render() {
+            const level = LEVELS[currentLevelIdx];
+
+            // Clear Screen (DOS Black/Dark Pattern)
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, W, H);
+
+            // Draw Background Grid (Retro Aesthetic)
+            ctx.strokeStyle = '#111133';
+            ctx.lineWidth = 1;
+            for (let i = 0; i < W; i += 32) {
+                ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, H); ctx.stroke();
+            }
+
+            // Draw Platforms (Pixelated VGA Style)
+            level.platforms.forEach(p => {
+                ctx.fillStyle = '#885522'; // Dirt
+                ctx.fillRect(p.x, p.y, p.w, p.h);
+                ctx.fillStyle = '#55FF55'; // Grass Top
+                ctx.fillRect(p.x, p.y, p.w, 4);
+                ctx.strokeStyle = '#000000';
+                ctx.strokeRect(p.x, p.y, p.w, p.h);
+            });
+
+            // Draw Dynamic Coin Platforms
+            coinPlatforms.forEach(cp => {
+                ctx.fillStyle = '#FFFF55';
+                ctx.fillRect(cp.x, cp.y, cp.w, cp.h);
+                ctx.fillStyle = '#FFAA00';
+                ctx.fillRect(cp.x + 1, cp.y + 1, cp.w - 2, cp.h - 2);
+            });
+
+            // Draw Hazards
+            level.hazards.forEach(h => {
+                if (h.active === false) return;
+                if (h.type === 'water' || h.type === 'acid') {
+                    ctx.fillStyle = h.type === 'water' ? '#0000AA' : '#00AA00';
+                    ctx.fillRect(h.x, h.y, h.w, h.h);
+                } else if (h.type === 'laser' || h.type === 'flame') {
+                    ctx.fillStyle = '#FF5555';
+                    ctx.fillRect(h.x, h.y, h.w, h.h);
+                }
+            });
+
+            // Draw Switches
+            level.switches.forEach(sw => {
+                ctx.fillStyle = sw.triggered ? '#55FF55' : '#FF5555';
+                ctx.fillRect(sw.x, sw.y, sw.w, sw.h);
+            });
+
+            // Draw Trapdoor (Entrance)
+            ctx.fillStyle = '#AA5500';
+            ctx.fillRect(level.trapdoor.x - 15, level.trapdoor.y - 10, 30, 10);
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(level.trapdoor.x - 10, level.trapdoor.y - 5, 20, 5);
+
+            // Draw Exit Door
+            ctx.fillStyle = '#AA00AA';
+            ctx.fillRect(level.exit.x - 12, level.exit.y - 24, 24, 24);
+            ctx.fillStyle = '#FFFF55';
+            ctx.fillRect(level.exit.x - 8, level.exit.y - 20, 16, 20);
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(level.exit.x - 4, level.exit.y - 16, 8, 16);
+
+            // Draw Lemmings
+            lemmings.forEach(l => l.draw());
+        }
+
+        /**
+         * INTERACTION & CONTROLS
+         */
+        canvas.addEventListener('click', (e) => {
+            if (gameState !== 'PLAYING') return;
+
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+
+            const mx = (e.clientX - rect.left) * scaleX;
+            const my = (e.clientY - rect.top) * scaleY;
+
+            // Find clicked lemming
+            const target = lemmings.find(l => 
+                l.state !== 'dead' && l.state !== 'exited' &&
+                Math.abs(l.x - mx) < 18 && Math.abs(l.y - 6 - my) < 18
+            );
+
+            if (target) {
+                applyTool(target);
+            } else if (activeTool === 'coin') {
+                // Place floating coin platform directly if clicking on empty air
+                addCoinPlatform(mx - 15, my, 30, 6);
+                audio.play('coin');
+            }
+        });
+
+        function applyTool(lemming) {
+            const lvl = LEVELS[currentLevelIdx];
+
+            if (activeTool === 'coin') {
+                lemming.hasCoin = true;
+                audio.play('coin');
+            } else if (activeTool === 'digger' && lvl.tools.digger > 0) {
+                lemming.state = 'digging';
+                lvl.tools.digger--;
+                audio.play('click');
+            } else if (activeTool === 'blocker' && lvl.tools.blocker > 0) {
+                lemming.state = 'blocking';
+                lemming.vx = 0;
+                lvl.tools.blocker--;
+                audio.play('click');
+            } else if (activeTool === 'builder' && lvl.tools.builder > 0) {
+                lemming.state = 'building';
+                lemming.buildSteps = 0;
+                lvl.tools.builder--;
+                audio.play('click');
+            }
+            updateToolQuantities();
+        }
+
+        // Tool Selection
+        document.querySelectorAll('.tool-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeTool = btn.dataset.tool;
+                audio.play('click');
+            });
+        });
+
+        // Speed Button
+        document.getElementById('btn-speed').addEventListener('click', () => {
+            speedMultiplier = speedMultiplier === 1 ? 2 : (speedMultiplier === 2 ? 4 : 1);
+            document.getElementById('btn-speed').innerText = `⚡ ${speedMultiplier}x`;
+            audio.play('click');
+        });
+
+        // Pause Button
+        document.getElementById('btn-pause').addEventListener('click', () => {
+            if (gameState === 'PLAYING') {
+                gameState = 'PAUSED';
+                showOverlay("GAME PAUSED", "Press Resume to Continue.");
+            } else if (gameState === 'PAUSED') {
+                gameState = 'PLAYING';
+                hideOverlay();
+            }
+            audio.play('click');
+        });
+
+        // Restart Button
+        document.getElementById('btn-restart').addEventListener('click', () => {
+            startLevel(currentLevelIdx);
+            audio.play('click');
+        });
+
+        // Overlay Buttons
+        document.getElementById('btn-start').addEventListener('click', () => {
+            audio.init();
+            if (gameState === 'WIN' && currentLevelIdx < LEVELS.length - 1) {
+                currentLevelIdx++;
+            }
+            startLevel(currentLevelIdx);
+            hideOverlay();
+        });
+
+        document.getElementById('btn-sound-toggle').addEventListener('click', () => {
+            audio.enabled = !audio.enabled;
+            document.getElementById('btn-sound-toggle').innerText = `SOUND: ${audio.enabled ? 'ON' : 'OFF'}`;
+        });
+
+        /**
+         * LEVEL MANAGEMENT & UI
+         */
+        function startLevel(idx) {
+            currentLevelIdx = idx;
+            const level = LEVELS[idx];
+
+            lemmings = [];
+            coinPlatforms = [];
+            totalSpawned = 0;
+            savedCount = 0;
+            deadCount = 0;
+            spawnCounter = 0;
+            timeRemaining = level.timeLimit;
+            gameState = 'PLAYING';
+
+            // Reset switch states & hazard states
+            level.switches.forEach(sw => sw.triggered = false);
+            level.hazards.forEach(h => h.active = true);
+
+            updateToolQuantities();
+            updateUI();
+
+            if (levelTimer) clearInterval(levelTimer);
+            levelTimer = setInterval(() => {
+                if (gameState === 'PLAYING') {
+                    timeRemaining--;
+                    if (timeRemaining <= 0) {
+                        triggerGameOver("TIME EXPIRED!");
+                    }
+                }
+            }, 1000);
+        }
+
+        function updateToolQuantities() {
+            const level = LEVELS[currentLevelIdx];
+            document.getElementById('qty-digger').innerText = level.tools.digger;
+            document.getElementById('qty-blocker').innerText = level.tools.blocker;
+            document.getElementById('qty-builder').innerText = level.tools.builder;
+        }
+
+        function updateUI() {
+            const level = LEVELS[currentLevelIdx];
+            document.getElementById('ui-score').innerText = String(score).padStart(5, '0');
+            document.getElementById('ui-time').innerText = timeRemaining;
+            document.getElementById('ui-in').innerText = totalSpawned;
+            document.getElementById('ui-out').innerText = lemmings.filter(l => l.state !== 'dead' && l.state !== 'exited').length;
+            document.getElementById('ui-saved').innerText = savedCount;
+            document.getElementById('ui-target').innerText = level.targetSaved;
+            document.getElementById('ui-level').innerText = currentLevelIdx + 1;
+        }
+
+        function triggerWin() {
+            gameState = 'WIN';
+            clearInterval(levelTimer);
+            if (currentLevelIdx < LEVELS.length - 1) {
+                showOverlay("LEVEL CLEARED!", "Great job! Get ready for the next level.");
+                document.getElementById('btn-start').innerText = "NEXT LEVEL";
+            } else {
+                showOverlay("VICTORY!", "You completed all DOS Lemmings Coin levels!");
+                document.getElementById('btn-start').innerText = "PLAY AGAIN";
+            }
+        }
+
+        function triggerGameOver(reason) {
+            gameState = 'LOSE';
+            clearInterval(levelTimer);
+            showOverlay("GAME OVER", `${reason} Try again!`);
+            document.getElementById('btn-start').innerText = "RETRY LEVEL";
+        }
+
+        function showOverlay(title, msg) {
+            document.getElementById('overlay-title').innerText = title;
+            document.getElementById('overlay-msg').innerText = msg;
+            document.getElementById('overlay-screen').classList.remove('hidden');
+        }
+
+        function hideOverlay() {
+            document.getElementById('overlay-screen').classList.add('hidden');
+        }
+
+        // Initialize Engine
+        window.onload = () => {
+            initTerrain();
+            gameLoop();
+        };
+    </script>
+</body>
+</html>

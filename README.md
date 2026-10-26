@@ -14,6 +14,16 @@ train it for playing a game in a way that evolves through live input..  . .
 python is useful for the chat ai to create otherwise useless scripts; that can create the evolving input.
 #
 /.
+##
+##
+#####
+# n o t e
+y o u can use any image and anything else for the ground construction of your own pictures..  . .{useful for printing even in stone.}
+##
+##
+#
+#####
+# "
 #.///.create..create.terminate..cloud.execute  enter  punkt..  . .
 /.
 #

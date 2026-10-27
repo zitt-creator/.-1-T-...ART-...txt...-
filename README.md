@@ -1,4 +1,4 @@
-updated last::00260010026:12::00sulu..  . .
+updated last::00270010026:12::00sulu..  . .
 /.
 ::
 # .-1-T-...ART-...txt...-
@@ -7,6 +7,18 @@ artletters^¢
 #
 ;;;;;
 /.
+# n o t e
+y o u can use any image and anything else for the ground construction of your own pictures/scripts for free..  . .{useful for printing even in stone.}
+copy ++ paste the pictures or anything else in your ai chat and let the ai post-process your new input to create something with it, is the easiest way to use the basics of already existing codes..  . .
+#
+example code(+add function for downloaded picture/script from ai chat app already used)::  
+.create..create  aiimagecreate......create.photography..kirlian.pep..style......create..photography.scene..create..scene.room.architecture==π÷2......create..aiimagecreate  max size.resolution..  . .
+/.
+##
+##
+#
+#####
+#
 # n o t e
 tip for gemini::
 train it for playing a game in a way that evolves through live input..  . .
@@ -17,8 +29,6 @@ python is useful for the chat ai to create otherwise useless scripts; that can c
 ##
 ##
 #####
-# n o t e
-y o u can use any image and anything else for the ground construction of your own pictures for free..  . .{useful for printing even in stone.}
 ##
 ##
 #

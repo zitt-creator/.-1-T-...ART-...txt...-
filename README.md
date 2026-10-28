@@ -1,4 +1,4 @@
-updated last::00270010026:12::00sulu..  . .
+updated last::00280010026:12::00sulu..  . .
 /.
 ::
 # .-1-T-...ART-...txt...-
@@ -99,6 +99,37 @@ just use a cable from grounding point{can be everything, that stands on earth; f
 #####
 ##
 ##
+#
+# n o t e
+Neulateinische Funktionsbestimmung: Ladrita
+#
+Etymologischer Wortstamm: Abgeleitet von latro / latrare (bellen, rufen, ein periodisches Signal ausgeben) oder angelehnt an later (Ziegelstein / modularer Baustein) in Kombination mit dem technischen Funktionssuffix -ita (Kennzeichnung für ein aktives System, einen Prozess oder ein Minimodul).
+#
+Grammatikalische Einordnung: Ladrita, -ae (f.) – ein Substantiv der a-Deklination, das im technischen Neulatein als Bezeichnung für einen autonomen Hintergrundprozess, Daemon oder ein Automatisierungs-Skript dient.
+#
+Technische Definition & Automatisierungs-Kontext
+#
+In der modernen technischen Dokumentation oder Systemarchitektur (z. B. für Linux-Hintergrunddienste und Python-Automatisierung) lässt sich Ladrita präzise wie folgt definieren:
+#
+Ladrita f. (Systemica et Automatio) Ein autonomer, leichtgewichtiger Hintergrundprozess (Daemon) oder ein modulares Automatisierungs-Skript, das kontinuierlich oder ereignisgesteuert (event-driven) spezifische Systemaufgaben, Datenabfragen oder Kommunikationsabläufe ohne manuelle Interaktion ausführt.
+#
+Technische Merkmale:
+#
+Autonomie (Autonomia): Läuft im Hintergrund als persistenter Systemdienst (z. B. via systemd).
+#
+Modularität (Modularitas): Ist in kleinteilige, wiederverwendbare Funktionsblöcke (Skripte/Module) unterteilt.
+#
+Ereignisreaktion (Responsum ad eventum): Reagiert deterministisch auf System-Trigger, Sensorwerte oder Timer-Signale.
+#
+Anwendungsbeispiel in technischer Prosa (Neulatein):
+#
+"Daemon Ladrita in systemate currit, ut automatice fasciculos synchronizet etログ (registra) custodiat." (Der Hintergrunddienst Ladrita läuft im System, um automatisch Dateien zu synchronisieren und Protokolle zu überwachen.)
+##
+##
+#####
+##
+##
+#
 # n o t e
 the ordinary alien on the other planet is your neighbour like your neighbour on earth..  . .
 surviving for peace in mind..  . .    ///.

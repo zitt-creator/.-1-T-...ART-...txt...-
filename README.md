@@ -31,8 +31,19 @@ python is useful for the chat ai to create otherwise useless scripts; that can c
 #####
 ##
 ##
-#
+# n o t e
+1. The Core Stages of Crawling
+ * Discovery (Seed URLs): Crawlers start with a list of known URLs (seeds) or XML sitemaps and follow hyperlinks to discover new pages.
+ * Fetching: The crawler requests the page content from the web server using a bot (like Googlebot).
+ * Parsing & Rendering: The system analyzes the raw HTML, extracts metadata and links, and sometimes executes JavaScript to render dynamic content.
+ * Indexing: Extracted data is structured and stored in massive search databases so it can be retrieved instantly when a user runs a search query.
+2. Key Politeness & Control Policies
+ * Robots.txt: Directives left by site owners telling crawlers which directories or pages are allowed or forbidden.
+ * Crawl Rate: Mechanisms designed to prevent overloading a web server with too many requests at once..  . .
+..  . .
 /.
+##
+##
 #####
 # "
 #.///.create..create.terminate..cloud.execute  enter  punkt..  . .

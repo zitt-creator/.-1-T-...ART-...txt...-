@@ -32,6 +32,7 @@ python is useful for the chat ai to create otherwise useless scripts; that can c
 ##
 ##
 # n o t e
+# search-engine-optimizing
 1. The Core Stages of Crawling
  * Discovery (Seed URLs): Crawlers start with a list of known URLs (seeds) or XML sitemaps and follow hyperlinks to discover new pages.
  * Fetching: The crawler requests the page content from the web server using a bot (like Googlebot).

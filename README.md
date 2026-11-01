@@ -1,4 +1,4 @@
-updated last::00310010026:12::00sulu..  . .
+updated last::000010011026:12::00sulu..  . .
 /.
 ::
 # .-1-T-...ART-...txt...-
@@ -65,6 +65,53 @@ use the vent two times in the open source game among us to somehow glitch the co
 ##
 #
 #####
+##
+##
+# n o t e
+##
+##
+# casino-(in))game::    sabbac..  . .{+}..  . .
+Sabacc is the premier high-stakes casino card game in the Star Wars universe, famously blending mechanics from Blackjack and Poker with unpredictable card shifts.
+The rules vary slightly depending on which variant you are playing (e.g., Classic Sabacc, Coruscant Shift, or Kessel Sabacc as seen in Star Wars Outlaws). Below is the breakdown for the standard Classic Sabacc rules, followed by details on how to play online.
+Core Gameplay Mechanics (Classic Sabacc)
+1. Objective
+Your goal is to build a hand total as close to +23 or -23 as possible without exceeding 23 or dropping below -23 (which results in a "bomb out").
+2. The Deck & Pots
+ * The Deck: Contains 76 cards across 4 suits (Staves, Flasks, Sabers, Coins) with values from 1 to 15, plus ranked cards and face cards with negative values (ranging from -2 to -17) and an "Idiot" card (0).
+ * Two Pots:
+   * Main Pot: Won by the player with the best hand at the end of the round.
+   * Sabacc Pot: A progressive pot won only by securing an absolute perfect hand.
+3. Structure of a Turn
+Every round consists of four main phases:
+ * Ante & Deal: Each player bets credits into both pots. Players are dealt 2 cards face down.
+ * Draw / Trade Phase: On your turn, you may:
+   * Draw: Take 1 new card from the deck.
+   * Trade: Swap 1 card from your hand with 1 from the deck/discard.
+   * Stand: Keep your current hand.
+ * Betting Phase: Players bet, raise, call, or fold into the Main Pot, just like in Poker.
+ * The Sabacc Shift (The Twist): After betting, two dice are rolled. If the dice show matching numbers (a double), a Sabacc Shift occurs! All players must discard their un-locked cards, shuffle them back into the deck, and draw new ones.
+   * Protection: Players can place cards into the "Interference Field" / "Static Field" to lock their values and protect them from shifting.
+4. Winning Hands (Rankings)
+ * Idiot's Array (Best Possible Hand): An Idiot (0), a 2, and a 3 (literally reading 0-2-3). Beats a Pure Sabacc!
+ * Pure Sabacc: A total sum of exactly +23 or -23. (Takes both Main and Sabacc Pots).
+ * Highest Absolute Value: If no one has a perfect hand when called, the player closest to 23 (or -23) wins the Main Pot.
+ * Bombing Out: Going over +23, under -23, or finishing with a 0 without an Idiot's Array disqualifies your hand.
+How to Play Sabacc Online
+While there is no single official standalone "Sabacc Casino MMO," you can play online in several active communities:
+ * Browser & Fan-Made Web Apps:
+   * Outer Rim Sabacc League / Daily Sabacc: Community-driven web apps where you can play live Sabacc matches against other players or AI in real time via your browser.
+ * Tabletop Simulator (Steam):
+   * The most popular way to play online. Search the Steam Workshop for Sabacc to find custom-scripted 3D tables featuring automated shuffling, betting chips, and dice rollers for multi-player games.
+ * Star Wars: Outlaws (Single Player / In-Game):
+   * Star Wars Outlaws features a fully realized Kessel Sabacc mini-game with custom Shift Tokens, bluffing mechanics, and high-stakes casino tables.
+ * VR & Fan Games:
+   * Custom Sabacc rooms exist across VR Chat and fan-made Star Wars Discord gaming servers.
+##
+##
+#####
+##
+##
+#
 # n o t e
 # info .debb..   {bash execute .debb}
 {ipu}test{PC brick}{y o u r wrong software will brick it, that y o u installed on y o u r PC}

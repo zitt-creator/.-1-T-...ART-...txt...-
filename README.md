@@ -70,7 +70,7 @@ use the vent two times in the open source game among us to somehow glitch the co
 # n o t e
 ##
 ##
-# casino-(in))game::    sabbacc..  . .{+}..  . .
+# casino-(in))game::    sabacc..  . .{+}..  . .
 Sabacc is the premier high-stakes casino card game in the Star Wars universe, famously blending mechanics from Blackjack and Poker with unpredictable card shifts.
 The rules vary slightly depending on which variant you are playing (e.g., Classic Sabacc, Coruscant Shift, or Kessel Sabacc as seen in Star Wars Outlaws). Below is the breakdown for the standard Classic Sabacc rules, followed by details on how to play online.
 Core Gameplay Mechanics (Classic Sabacc)

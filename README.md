@@ -1,4 +1,4 @@
-updated last::000090011026:12::00sulu..  . .
+updated last::00120011026:12::00sulu..  . .
 /.
 ::
 # .-1-T-...ART-...txt...-
@@ -11,7 +11,7 @@ artletters^¢
 y o u can use any image and anything else for the ground construction of your own pictures/scripts for free..  . .{useful for printing even in stone.}
 copy ++ paste the pictures or anything else in your ai chat and let the ai post-process your new input to create something with it, is the easiest way to use the basics of already existing codes..  . .
 #
-example code(+add function for downloaded picture/script from ai chat app already used)::  
+example code for ai----image--create(+add function for downloaded picture/script from ai chat app already used)::  
 .create..create  aiimagecreate......create.photography..kirlian.pep..style......create..photography.scene..create..scene.room.architecture==π÷2......create..aiimagecreate  max size.resolution..  . .
 /.
 ##
@@ -112,11 +112,8 @@ While there is no single official standalone "Sabacc Casino MMO," you can play o
 ##
 ##
 #
-# n o t e
-# info .debb..   {bash execute .debb}
-{ipu}test{PC brick}{y o u r wrong software will brick it, that y o u installed on y o u r PC}
-code
-.DEBBDEBB{Enter}
+#
+#
 ##
 ##
 #

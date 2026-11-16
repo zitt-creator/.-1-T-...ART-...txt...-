@@ -1,3 +1,7 @@
+#
+##
+##
+#
 updated last::00160011026:12::00sulu..  . .
 /.
 ::
@@ -8,23 +12,22 @@ artletters^¢
 ;;;;;
 /.
 #
+#
 ##
 ##
+#
 #####
-##
-##
 #
 <img width="896" height="1200" alt="1000069668" src="https://github.com/user-attachments/assets/f4b33047-29e2-466a-b3e9-9d2a5aaedfd8" />
 <img width="1792" height="2400" alt="1000069671" src="https://github.com/user-attachments/assets/7d69fe28-046b-4653-927e-ee19a25d7fe3" />
 #
-##
-##
-#####
 #
+
 # n o t e
 y o u can use any image and anything else for the ground construction of your own pictures/scripts for free..  . .{useful for printing even in stone.}
 copy ++ paste the pictures or anything else in your ai chat and let the ai post-process your new input to create something with it, is the easiest way to use the basics of already existing codes..  . .
 #
+
 example code for ai----image--create(+add function for downloaded picture/script from ai chat app already used)::  
 .create..create  aiimagecreate......create.photography..kirlian.pep..style......create..photography.scene..create..scene.room.architecture==π÷2......create..aiimagecreate  max size.resolution..  . .
 /.

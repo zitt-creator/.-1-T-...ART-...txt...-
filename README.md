@@ -21,10 +21,12 @@ artletters^¢
 #
 #####
 #
-<img width="896" height="1200" alt="1000069668" src="https://github.com/user-attachments/assets/f4b33047-29e2-466a-b3e9-9d2a5aaedfd8" />
 <img width="1792" height="2400" alt="1000069671" src="https://github.com/user-attachments/assets/7d69fe28-046b-4653-927e-ee19a25d7fe3" />
+<img width="896" height="1200" alt="1000069668" src="https://github.com/user-attachments/assets/f4b33047-29e2-466a-b3e9-9d2a5aaedfd8" />
+
 #
-#
+# five+++1..  . ./.
+<img width="2240" height="1920" alt="1000069694" src="https://github.com/user-attachments/assets/2299c191-71ef-455c-9c9f-378b33154b22" />
 
 # n o t e
 y o u can use any image and anything else for the ground construction of your own pictures/scripts for free..  . .{useful for printing even in stone.}

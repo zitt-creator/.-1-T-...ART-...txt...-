@@ -11,7 +11,16 @@ updated last::00170011026:12::00sulu..  . .
 # .-1-T-...ART-...txt...-
 artletters^¢
 #
+#
+##
+##
+#
+
 # 「s路通羅馬；價格由路徑決定。」
+#
+<img width="2816" height="1536" alt="1000069719" src="https://github.com/user-attachments/assets/e0a62605-1dc7-446b-9fd3-d8ef63b52810" />
+
+
 ;;;;;
 /.
 #
@@ -19,8 +28,10 @@ artletters^¢
 ##
 ##
 #
+::
 #####
 #
+::
 <img width="1792" height="2400" alt="1000069671" src="https://github.com/user-attachments/assets/7d69fe28-046b-4653-927e-ee19a25d7fe3" />
 <img width="896" height="1200" alt="1000069668" src="https://github.com/user-attachments/assets/f4b33047-29e2-466a-b3e9-9d2a5aaedfd8" />
 
@@ -47,6 +58,7 @@ train it for playing a game in a way that evolves through live input..  . .
 /.
 python is useful for the chat ai to create otherwise useless scripts; that can create the evolving input.
 #
+::
 /.
 ##
 ##
@@ -54,6 +66,7 @@ python is useful for the chat ai to create otherwise useless scripts; that can c
 ##
 ##
 #
+::
 <img width="2816" height="1536" alt="1000069702" src="https://github.com/user-attachments/assets/5dde2c57-43c8-4cc0-a976-f951d68a7e33" />
 
 

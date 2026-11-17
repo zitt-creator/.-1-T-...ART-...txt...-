@@ -53,6 +53,11 @@ python is useful for the chat ai to create otherwise useless scripts; that can c
 #####
 ##
 ##
+#
+<img width="2816" height="1536" alt="1000069702" src="https://github.com/user-attachments/assets/5dde2c57-43c8-4cc0-a976-f951d68a7e33" />
+
+
+
 # n o t e
 # search-engine-optimizing
 1. The Core Stages of Crawling

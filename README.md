@@ -11,20 +11,19 @@ updated last::00220011026:12::00sulu..  . .
 # .-1-T-...ART-...txt...-
 artletters^¢
 #
-#
+# ;;;;;
 ##
 ##
-#
+# ::
 
 # 「s路通羅馬；價格由路徑決定。」
 #
 <img width="2816" height="1536" alt="1000069719" src="https://github.com/user-attachments/assets/e0a62605-1dc7-446b-9fd3-d8ef63b52810" />
 
-
-;;;;;
-/.
-#
-#
+# /.
+##
+##
+#####
 ##
 ##
 #
@@ -40,7 +39,7 @@ artletters^¢
 <img width="2240" height="1920" alt="1000069694" src="https://github.com/user-attachments/assets/2299c191-71ef-455c-9c9f-378b33154b22" />
 
 # n o t e
-y o u can use any image and anything else for the ground construction of your own pictures/scripts for free..  . .{useful for printing even in stone.}
+y o u can use any image and  ///  or anything else from here; for the ground construction of your own pictures/scripts for free..  . .{useful for printing even in stone.}
 copy ++ paste the pictures or anything else in your ai chat and let the ai post-process your new input to create something with it, is the easiest way to use the basics of already existing codes..  . .
 #
 
@@ -69,8 +68,6 @@ python is useful for the chat ai to create otherwise useless scripts; that can c
 ::
 <img width="2816" height="1536" alt="1000069702" src="https://github.com/user-attachments/assets/5dde2c57-43c8-4cc0-a976-f951d68a7e33" />
 
-
-
 # n o t e
 # search-engine-optimizing
 1. The Core Stages of Crawling
@@ -86,9 +83,7 @@ python is useful for the chat ai to create otherwise useless scripts; that can c
 ##
 ##
 #####
-# "
-#.///.create..create.terminate..cloud.execute  enter  punkt..  . .
-/.
+#
 ##
 ##
 # n o t e
@@ -101,6 +96,7 @@ update:: jump and shoot with the pistol against the next wall on the map in ego-
 any game has things to control to frag via intra-kill..  . .
 use the vent two times in the open source game among us to somehow glitch the code from the avatar of the chosen enemy..  . .    ///
 /.
+#
 ##
 ##
 #
@@ -108,8 +104,6 @@ use the vent two times in the open source game among us to somehow glitch the co
 ##
 ##
 # n o t e
-##
-##
 # casino-(in))game::    sabacc..  . .{+}..  . .
 Sabacc is the premier high-stakes casino card game in the Star Wars universe, famously blending mechanics from Blackjack and Poker with unpredictable card shifts.
 The rules vary slightly depending on which variant you are playing (e.g., Classic Sabacc, Coruscant Shift, or Kessel Sabacc as seen in Star Wars Outlaws). Below is the breakdown for the standard Classic Sabacc rules, followed by details on how to play online.
@@ -146,33 +140,31 @@ While there is no single official standalone "Sabacc Casino MMO," you can play o
    * Star Wars Outlaws features a fully realized Kessel Sabacc mini-game with custom Shift Tokens, bluffing mechanics, and high-stakes casino tables.
  * VR & Fan Games:
    * Custom Sabacc rooms exist across VR Chat and fan-made Star Wars Discord gaming servers.
-##
-##
-#####
-##
-##
-#
-#
 #
 ##
 ##
-#
+# ::
 #####
 #
-w
 ##
 ##
+# w
+#
+##
+##
+#
 #####
 #
-#
-;;;;;
 ##
 ##
+c.pile==[33][33][47][.txt][33][79][33][47]..  . ./.
 ##
+##
+# ::
 #####
 # n o t e
-# g r o u n d i n g..  . .    /.
-/.    5..  . .    ///.
+# g r o u n d i n g..  . .    /.(extra)).PE
+/.    ..  . .    ///.
 # condensing
 #
 # ;      -----|-----
@@ -185,10 +177,16 @@ w
 #
 # idea for home; extra-grounding
 just use a cable from grounding point{can be everything, that stands on earth; for example PC-cases}, to a blumentopf"{works best with first contact in the bottom and next from the top to the bottom of the next blumentopf" condenser}..  . .
+#
 ##
 ##
 # ;;;;;  ;;;;;  ;;;;;
+#
+##
+##
+#
 #####
+#
 ##
 ##
 #
@@ -219,9 +217,12 @@ Ereignisreaktion (Responsum ad eventum): Reagiert deterministisch auf System-Tri
 Anwendungsbeispiel in technischer Prosa (Neulatein):
 #
 "Daemon Ladrita in systemate currit, ut automatice fasciculos synchronizet etログ (registra) custodiat." (Der Hintergrunddienst Ladrita läuft im System, um automatisch Dateien zu synchronisieren und Protokolle zu überwachen.)
+#
 ##
 ##
+#
 #####
+#
 ##
 ##
 # maestro^ salieri  vs  mozart
@@ -229,15 +230,20 @@ https://github.com/user-attachments/assets/ff2bdcae-30fe-4db4-853d-51752c427671
 #
 ##
 ##
+#
 #####
 #
+##
+##
 # n o t e
 the ordinary alien on the other planet is your neighbour like your neighbour on earth..  . .
 surviving for peace in mind..  . .    ///.
-/.
+# /.
 ##
 ##
+#
 #####
 #;
 ...;;;;;...{likiti.}."
 .
+# /.

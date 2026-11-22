@@ -226,6 +226,16 @@ Anwendungsbeispiel in technischer Prosa (Neulatein):
 ##
 ##
 #
+
+
+https://github.com/user-attachments/assets/ff2bdcae-30fe-4db4-853d-51752c427671
+
+
+#
+##
+##
+#####
+#
 # n o t e
 the ordinary alien on the other planet is your neighbour like your neighbour on earth..  . .
 surviving for peace in mind..  . .    ///.

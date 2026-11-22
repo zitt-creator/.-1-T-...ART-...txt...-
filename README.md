@@ -226,11 +226,7 @@ Anwendungsbeispiel in technischer Prosa (Neulatein):
 ##
 ##
 #
-
-
 https://github.com/user-attachments/assets/ff2bdcae-30fe-4db4-853d-51752c427671
-
-
 #
 ##
 ##

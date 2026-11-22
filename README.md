@@ -182,20 +182,19 @@ w
 #### ;::     -|-
 /.    ..  . .    ///.
 /.
-##
-##
 #
-#####
-# n o t e
 # idea for home; extra-grounding
 just use a cable from grounding point{can be everything, that stands on earth; for example PC-cases}, to a blumentopf"{works best with first contact in the bottom and next from the top to the bottom of the next blumentopf" condenser}..  . .
 ##
 ##
-#
+# ;;;;;  ;;;;;  ;;;;;
 #####
 ##
 ##
 #
+<img width="896" height="1200" alt="1000000319" src="https://github.com/user-attachments/assets/e81fca1a-0785-4d09-9d8b-42176f389878" />
+#
+
 # n o t e
 Neulateinische Funktionsbestimmung: Ladrita
 #

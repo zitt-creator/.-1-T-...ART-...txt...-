@@ -1,21 +1,26 @@
 #
+updated last.::00220011026:12::00sulu..  . .
 ##
 ##
 #
 #####
-#
-#
-updated last::00220011026:12::00sulu..  . .
-/.
-::
 # .-1-T-...ART-...txt...-
 artletters^¢
+# ::
+# ::
+# ..  . .
+## ..  . .
+## ..  . .
+# 弗食其食；非爾食也。
+Fú shí qí shí; fēi ěr shí yě.
+##
+::
 #
-# ;;;;;
+#
 ##
 ##
 # ::
-
+/.
 # 「s路通羅馬；價格由路徑決定。」
 #
 <img width="2816" height="1536" alt="1000069719" src="https://github.com/user-attachments/assets/e0a62605-1dc7-446b-9fd3-d8ef63b52810" />
@@ -153,13 +158,6 @@ While there is no single official standalone "Sabacc Casino MMO," you can play o
 ##
 ##
 #
-#####
-#
-##
-##
-c.pile==[33][33][47][.txt][33][79][33][47]..  . ./.
-##
-##
 # ::
 #####
 # n o t e
@@ -189,10 +187,10 @@ just use a cable from grounding point{can be everything, that stands on earth; f
 #
 ##
 ##
-#
+::
 <img width="896" height="1200" alt="1000000319" src="https://github.com/user-attachments/assets/e81fca1a-0785-4d09-9d8b-42176f389878" />
-#
-
+# ::
+::
 # n o t e
 Neulateinische Funktionsbestimmung: Ladrita
 #

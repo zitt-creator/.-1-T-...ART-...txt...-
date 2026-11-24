@@ -1,5 +1,5 @@
 #
-updated last.::00230011026:12::00sulu..  . .
+updated last.::00240011026:12::00sulu..  . .
 ##
 ##
 #
@@ -16,15 +16,12 @@ Fú shí qí shí; fēi ěr shí yě.
 ##
 ::
 #
+<img width="1792" height="2400" alt="1000069902" src="https://github.com/user-attachments/assets/4bc79783-3491-4c3d-a884-9db8a7c5ff41" />
 #
-##
-##
-# ::
-/.
 # 「s路通羅馬；價格由路徑決定。」
 #
 <img width="2816" height="1536" alt="1000069719" src="https://github.com/user-attachments/assets/e0a62605-1dc7-446b-9fd3-d8ef63b52810" />
-
+#####
 # /.
 ##
 ##

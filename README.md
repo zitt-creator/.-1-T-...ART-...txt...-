@@ -88,10 +88,15 @@ python is useful for the chat ai to create otherwise useless scripts; that can c
 /.
 #
 # idea for home; extra-grounding
-just use a cable from grounding point{can be everything, that stands on earth; for example PC-cases}, to a blumentopf"{works best with first contact in the bottom and next from the top to the bottom of the next blumentopf" condenser}..  . .
+just use a cable from grounding point{can be everything, that stands on earth; for example PC-cases}, to a blumentopf"{works best with first contact in the bottom and next from the top to the bottom of the next blumentopf" condenser}..  . ./.
+#
+the PE-cable starts new at the top of the blumentopf" (not in one piece)) and the things you put into the earth next to the flowers are optional, but often helpful..  . ./.
+#
 #
 ##
 ##
+#
+# <img width="1792" height="2390" alt="1000069907" src="https://github.com/user-attachments/assets/472c719c-6455-41a2-8d81-d5e1b8529b77" />
 #
 #####
 #

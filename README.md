@@ -2,12 +2,22 @@
 updated last.::00250011026:12::00sulu..  . .
 ##
 ##
+# .-1-T-...ART-...txt...-
+artletters^¢
 #
+# 
+
+https://github.com/user-attachments/assets/9e661f0a-6896-44f2-8362-e0c05fc6b801
+
+
+#
+##
+##
+#####
 # <img width="2816" height="1536" alt="1000069702" src="https://github.com/user-attachments/assets/5dde2c57-43c8-4cc0-a976-f951d68a7e33" />
 #
 #####
-# .-1-T-...ART-...txt...-
-artletters^¢
+#
 # ::
 # ::
 # ..  . .

@@ -1,7 +1,9 @@
 #
-updated last.::00240011026:12::00sulu..  . .
+updated last.::00250011026:12::00sulu..  . .
 ##
 ##
+#
+# <img width="2816" height="1536" alt="1000069702" src="https://github.com/user-attachments/assets/5dde2c57-43c8-4cc0-a976-f951d68a7e33" />
 #
 #####
 # .-1-T-...ART-...txt...-
@@ -16,11 +18,13 @@ Fú shí qí shí; fēi ěr shí yě.
 ##
 ::
 #
-<img width="1792" height="2400" alt="1000069902" src="https://github.com/user-attachments/assets/4bc79783-3491-4c3d-a884-9db8a7c5ff41" />
+# <img width="1792" height="2400" alt="1000069902" src="https://github.com/user-attachments/assets/4bc79783-3491-4c3d-a884-9db8a7c5ff41" />
+#
+#
 #
 # 「s路通羅馬；價格由路徑決定。」
 #
-<img width="2816" height="1536" alt="1000069719" src="https://github.com/user-attachments/assets/e0a62605-1dc7-446b-9fd3-d8ef63b52810" />
+# <img width="2816" height="1536" alt="1000069719" src="https://github.com/user-attachments/assets/e0a62605-1dc7-446b-9fd3-d8ef63b52810" />
 #####
 # /.
 ##
@@ -33,9 +37,9 @@ Fú shí qí shí; fēi ěr shí yě.
 #####
 #
 ::
-<img width="1792" height="2400" alt="1000069671" src="https://github.com/user-attachments/assets/7d69fe28-046b-4653-927e-ee19a25d7fe3" />
-<img width="896" height="1200" alt="1000069668" src="https://github.com/user-attachments/assets/f4b33047-29e2-466a-b3e9-9d2a5aaedfd8" />
-
+# <img width="1792" height="2400" alt="1000069671" src="https://github.com/user-attachments/assets/7d69fe28-046b-4653-927e-ee19a25d7fe3" />
+# <img width="896" height="1200" alt="1000069668" src="https://github.com/user-attachments/assets/f4b33047-29e2-466a-b3e9-9d2a5aaedfd8" />
+#
 #
 # five+++1..  . ./.
 <img width="2240" height="1920" alt="1000069694" src="https://github.com/user-attachments/assets/2299c191-71ef-455c-9c9f-378b33154b22" />
@@ -68,8 +72,29 @@ python is useful for the chat ai to create otherwise useless scripts; that can c
 ##
 #
 ::
-<img width="2816" height="1536" alt="1000069702" src="https://github.com/user-attachments/assets/5dde2c57-43c8-4cc0-a976-f951d68a7e33" />
 
+#
+# n o t e
+# g r o u n d i n g..  . .    /.(extra)).PE
+/.    ..  . .    ///.
+# condensing
+#
+# ;      -----|-----
+#### ;::  ----|----
+#### ;::   ---|---
+#### ;::    --|--
+#### ;::     -|-
+/.    ..  . .    ///.
+/.
+#
+# idea for home; extra-grounding
+just use a cable from grounding point{can be everything, that stands on earth; for example PC-cases}, to a blumentopf"{works best with first contact in the bottom and next from the top to the bottom of the next blumentopf" condenser}..  . .
+#
+##
+##
+#
+#####
+#
 # n o t e
 # search-engine-optimizing
 1. The Core Stages of Crawling
@@ -157,21 +182,6 @@ While there is no single official standalone "Sabacc Casino MMO," you can play o
 #
 # ::
 #####
-# n o t e
-# g r o u n d i n g..  . .    /.(extra)).PE
-/.    ..  . .    ///.
-# condensing
-#
-# ;      -----|-----
-#### ;::  ----|----
-#### ;::   ---|---
-#### ;::    --|--
-#### ;::     -|-
-/.    ..  . .    ///.
-/.
-#
-# idea for home; extra-grounding
-just use a cable from grounding point{can be everything, that stands on earth; for example PC-cases}, to a blumentopf"{works best with first contact in the bottom and next from the top to the bottom of the next blumentopf" condenser}..  . .
 #
 ##
 ##
